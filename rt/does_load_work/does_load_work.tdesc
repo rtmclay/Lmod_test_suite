@@ -3,12 +3,12 @@ testdescript = {
    owner   = "rtm",
    product = "Lmod Test Suite",
    description = [[
-	 Does the module avail work?
+	 Does the module load work?
    ]],
    keywords = {"avail" },
 
    active = true,
-   testName = "does_module_avail_work",
+   testName = "does_load_work",
    job_submit_method = "INTERACTIVE",
 
    runScript = [[
@@ -18,14 +18,17 @@ testdescript = {
      echo PATH: $PATH
 
      init
+     unset A 2> /dev/null
      export MODULEPATH_ROOT=$testDir/mf
      export MODULEPATH=$MODULEPATH_ROOT/Core
 
-cat > $testName.sh << EOF
+cat > $testName.sh << 'EOF'
 #!/bin/bash -l
       unset LMOD_RTM_TESTING
       module --version
-      module avail
+      module load A
+      module list
+      echo A: $A 1>&2
 EOF
       chmod +x $testName.sh
       ./$testName.sh 2> _stderr.orig
