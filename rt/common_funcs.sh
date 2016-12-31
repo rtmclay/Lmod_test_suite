@@ -34,6 +34,9 @@ cleanUp ()
    sed                                                    \
        -e "s|$outputDir|OutputDIR|g"                      \
        -e "s|$projectDir|ProjectDIR|g"                    \
+       -e "s| *----* *||g"                                \
+       -e "s|^--* *| |g"                                  \
+       -e "s|--* *$||g"                                   \
        -e "s|$HOME|~|g"                                   \
        -e "/^ *$/d"                                       \
        < $1 > $2
