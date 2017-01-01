@@ -48,7 +48,7 @@ There are several tests which may run in any order.  However the results should 
 Test number 5 is likely to fail on Redhat, Centos and MACOS systems.  Where as it will likely pass on  debian, mint and ubuntu linux system.   I have added this test to point a problem with the way bash works.  Some unix systems build bash the default way, which means that THERE IS NO SYSTEM FILES SOURCED at the start of the the shell and other unix systems do source a system file (e.g. /etc/bashrc).  Sites have two choices with dealing with this problem:
 
 
-a. Patch bash.  See http://lmod.readthedocs.io/en/latest/030_installing.html#interactive-non-login-shells.  This is what we do at TACC.
-b. Require all users to put:  "source /etc/bashrc" in their ~/.bashrc
+1. Patch bash.  See http://lmod.readthedocs.io/en/latest/030_installing.html#interactive-non-login-shells.  This is what we do at TACC.
+2. Require all users to put:  "source /etc/bashrc" in their ~/.bashrc
 
 Interactive non-login bash shells are very common.  One important place is the shell that MPI starts.  It is an non-login interactive shell.  This can be a problem. because your site may define "ulimit -s unlimited"  to make the stack size unlimited in /etc/bashrc.  But if bash is not patched or the user doesn't source /etc/bashrc, then no system configuration files will be sourced leading to failed fortran 90 programs.
