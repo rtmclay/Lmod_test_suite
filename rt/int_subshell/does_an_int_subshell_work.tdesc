@@ -1,0 +1,64 @@
+-- -*- lua -*-
+testdescript = {
+   owner   = "rtm",
+   product = "Lmod Test Suite",
+   description = [[
+	 Does a subshell work?
+   ]],
+   keywords = {"subshell" },
+
+   active = true,
+   testName = "does_a_subshell_work",
+   job_submit_method = "INTERACTIVE",
+
+   runScript = [[
+
+     . $(projectDir)/rt/common_funcs.sh
+
+     echo PATH: $PATH
+
+     init
+     export MODULEPATH_ROOT=$testDir/mf
+     export MODULEPATH=$MODULEPATH_ROOT/Core
+
+cat > $testName.sh << 'EOF'
+#!/bin/bash -l
+      unset LMOD_RTM_TESTING
+      module --version
+      export LMOD_SYSTEM_DEFAULT_MODULES=B
+      module load A B
+      module list
+      alias  1>&2
+      echo A: $A 1>&2
+      ./subshell.sh
+EOF
+
+cat > subshell.sh << 'EOF'
+#!/bin/bash -i
+      module --version
+      module list
+      echo A: $A 1>&2
+      alias  1>&2
+EOF
+
+      chmod +x $testName.sh subshell.sh
+      ./$testName.sh 2> _stderr.orig
+
+     HOME=$ORIG_HOME
+
+     cleanUp _stderr.orig err.txt
+     rm -f results.csv
+     wrapperDiff --csv results.csv $(testDir)/err.txt err.txt
+     testFinish -r $(resultFn) -t $(runtimeFn) results.csv
+   ]],
+
+
+   blessScript = [[
+         # perform what is needed
+   ]],
+
+   tests = {
+      { id='t1'},
+   },
+
+}
