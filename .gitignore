@@ -1,0 +1,10 @@
+.#*
+.*~
+*~
+testreports
+t1
+auto
+*.tar.gz
+*.tar.bz2
+*.tgz
+.DS_Store

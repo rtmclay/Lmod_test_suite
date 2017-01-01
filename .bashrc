@@ -1,0 +1,1 @@
+echo "in testing .bashrc"

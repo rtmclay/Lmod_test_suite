@@ -1,0 +1,5 @@
+Modules based on Lua: Version 7.1.12 (7.1.12-1-gd95e228c) 2016-12-29 20:55 -06:00
+    by Robert McLay mclay@tacc.utexas.edu
+Currently Loaded Modules:
+  1) A/1.0
+A: a

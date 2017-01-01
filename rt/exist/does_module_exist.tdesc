@@ -1,0 +1,50 @@
+-- -*- lua -*-
+testdescript = {
+   owner   = "rtm",
+   product = "Lmod Test Suite",
+   description = [[
+	 Does the module command exist?
+   ]],
+   keywords = {"module_command" },
+
+   active = true,
+   testName = "does_module_exist",
+   job_submit_method = "INTERACTIVE",
+
+   runScript = [[
+
+     . $(projectDir)/rt/common_funcs.sh
+
+     init
+     export SHELL_STARTUP_DEBUG=1
+     echo MODULEPATH_ROOT: $MODULEPATH_ROOT
+cat > $testName.sh << 'EOF'
+#!/bin/bash -l
+      unset LMOD_RTM_TESTING
+      module --version
+      echo LMOD_CMD: $LMOD_CMD
+      test -n "$LMOD_CMD" && echo "LMOD_CMD is defined" 1>&2 || echo "LMOD_CMD is undefined" 1>&2
+      test -n "$LMOD_DIR" && echo "LMOD_DIR is defined" 1>&2 || echo "LMOD_DIR is undefined" 1>&2
+      test -n "$BASH_ENV" && echo "BASH_ENV is defined" 1>&2 || echo "BASH_ENV is undefined" 1>&2
+EOF
+      chmod +x $testName.sh
+      ./$testName.sh 2> _stderr.orig
+
+     HOME=$ORIG_HOME
+
+     cleanUp _stderr.orig err.txt
+     rm -f results.csv
+     wrapperDiff --csv results.csv $(testDir)/err.txt err.txt
+     testFinish -r $(resultFn) -t $(runtimeFn) results.csv
+   ]],
+
+
+   blessScript = [[
+         # perform what is needed
+   ]],
+
+   tests = {
+      { id='t1'},
+   },
+
+}

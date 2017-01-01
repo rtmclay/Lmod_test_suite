@@ -1,0 +1,48 @@
+#!/usr/bin/env lua
+-- -*- lua -*-
+require("strict")
+local keepT     = {
+   ['ACCOUNT']         = true,
+   ['HOME']            = true,
+   ['USER']            = true,
+   ['LD_LIBRARY_PATH'] = true,
+   ['LUA_CPATH']       = true,
+   ['LUA_PATH']        = true,
+   ['BASH_ENV']        = true,
+   ['TARG']            = true,
+   ['TARGET']          = true,
+   ['PATH']            = true,
+   ['messageFn']       = true,
+   ['resultFn']        = true,
+   ['projectDir']      = true,
+   ['testDir']         = true,
+   ['testdescriptFn']  = true,
+   ['target']          = true,
+   ['tag']             = true,
+   ['packageName']     = true,
+   ['runtimeFn']       = true,
+   ['cmdResultFn']     = true,
+   ['testName']        = true,
+   ['outputDir']       = true,
+   ['packageDir']      = true,
+   ['idTag']           = true,
+}
+
+_G._DEBUG       = false
+local posix     = require("posix")
+local getenv    = posix.getenv
+local setenv    = posix.setenv
+local concatTbl = table.concat
+
+function main()
+   local envT = getenv()
+
+   for k, v in pairs(envT) do
+      local keep = keepT[k]
+      if (not keep) then
+         print("unset ",k," 2> /dev/null;")
+      end
+   end
+end
+
+main()

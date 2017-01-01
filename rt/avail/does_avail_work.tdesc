@@ -1,0 +1,50 @@
+-- -*- lua -*-
+testdescript = {
+   owner   = "rtm",
+   product = "Lmod Test Suite",
+   description = [[
+	 Does the module avail work?
+   ]],
+   keywords = {"avail" },
+
+   active = true,
+   testName = "does_avail_work",
+   job_submit_method = "INTERACTIVE",
+
+   runScript = [[
+
+     . $(projectDir)/rt/common_funcs.sh
+
+     echo PATH: $PATH
+
+     init
+     export MODULEPATH_ROOT=$testDir/mf
+     export MODULEPATH=$MODULEPATH_ROOT/Core
+
+cat > $testName.sh << 'EOF'
+#!/bin/bash -l
+      unset LMOD_RTM_TESTING
+      module --version
+      module avail
+EOF
+      chmod +x $testName.sh
+      ./$testName.sh 2> _stderr.orig
+
+     HOME=$ORIG_HOME
+
+     cleanUp _stderr.orig err.txt
+     rm -f results.csv
+     wrapperDiff --csv results.csv $(testDir)/err.txt err.txt
+     testFinish -r $(resultFn) -t $(runtimeFn) results.csv
+   ]],
+
+
+   blessScript = [[
+         # perform what is needed
+   ]],
+
+   tests = {
+      { id='t1'},
+   },
+
+}
