@@ -52,3 +52,60 @@ Test number 5 is likely to fail on Redhat, Centos and MACOS systems.  Where as i
 2. Require all users to put:  "source /etc/bashrc" in their ~/.bashrc
 
 Interactive non-login bash shells are very common.  One important place is the shell that MPI starts.  It is an non-login interactive shell.  This can be a problem. because your site may define "ulimit -s unlimited"  to make the stack size unlimited in /etc/bashrc.  But if bash is not patched or the user doesn't source /etc/bashrc, then no system configuration files will be sourced leading to failed fortran 90 programs.
+
+
+## Expected Output:
+
+```
+$ tm .
+TM Version: 1.7
+
+Starting Tests:
+
+     Started : 17:54:56 tst: 1/5 P/F: 0:0, rt/int_subshell/does_an_int_subshell_work/t1 
+      passed : 17:54:56 tst: 1/5 P/F: 1:0, rt/int_subshell/does_an_int_subshell_work/t1 
+
+     Started : 17:54:56 tst: 2/5 P/F: 1:0, rt/exist/does_module_exist/t1        
+      passed : 17:54:56 tst: 2/5 P/F: 2:0, rt/exist/does_module_exist/t1        
+
+     Started : 17:54:56 tst: 3/5 P/F: 2:0, rt/load/does_load_work/t1    
+      passed : 17:54:56 tst: 3/5 P/F: 3:0, rt/load/does_load_work/t1    
+
+     Started : 17:54:56 tst: 4/5 P/F: 3:0, rt/subshell/does_a_subshell_work/t1  
+      passed : 17:54:57 tst: 4/5 P/F: 4:0, rt/subshell/does_a_subshell_work/t1  
+
+     Started : 17:54:57 tst: 5/5 P/F: 4:0, rt/avail/does_avail_work/t1  
+      passed : 17:54:57 tst: 5/5 P/F: 5:0, rt/avail/does_avail_work/t1  
+
+
+Finished Tests
+
+*******************************************************************************
+*** Test Results                                                            ***
+*******************************************************************************
+ 
+Date:             Sun Jan  1 17:54:56 2017
+TARGET:           x86_64_06_46_dbg_gcc-6.2.0_mpich-3.2
+Tag:              2017_01_01
+TM Version:       1.7
+Hermes Version:   2.2
+Lua Version:      Lua 5.3
+Total Test Time:  00:00:01.00
+ 
+*******************************************************************************
+*** Test Summary                                                            ***
+*******************************************************************************
+ 
+Total:   5
+passed:  5
+
+*******  *  ****   *********                                     ***************
+Results  R  Time   Test Name                                     version/message
+*******  *  ****   *********                                     ***************
+passed   R  0.102  rt/avail/does_avail_work/t1                   
+passed   R  0.309  rt/exist/does_module_exist/t1                 
+passed   R  0.231  rt/int_subshell/does_an_int_subshell_work/t1  
+passed   R  0.139  rt/load/does_load_work/t1                     
+passed   R  0.222  rt/subshell/does_a_subshell_work/t1           
+
+```
