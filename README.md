@@ -85,8 +85,6 @@ Finished Tests
 *******************************************************************************
  
 Date:             Sun Jan  1 17:54:56 2017
-TARGET:           x86_64_06_46_dbg_gcc-6.2.0_mpich-3.2
-Tag:              2017_01_01
 TM Version:       1.7
 Hermes Version:   2.2
 Lua Version:      Lua 5.3
