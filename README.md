@@ -4,7 +4,7 @@ This is a test suite for Lmod.  It checks that Lmod is installed correctly.   It
 
 This set of test is designed to test how well Lmod is integrated into the startup scripts.  This is typically adding the appropriate files into /etc/profile.d.  Linux systems typically use this to allow programs and aliases and shell functions to be available for a user without the user adding anything to their personal startup scripts (i.e. ~/.bashrc).
 
-All the tests in this suite will fail if a user defines the module command in their personal startup scripts.
+All the tests in this suite will fail if a user defines the module command in their personal startup scripts (e.g. ~/.bashrc).
 
 ## Lmod Mailing list
 
