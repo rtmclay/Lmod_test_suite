@@ -17,3 +17,14 @@ gittag:
         else
 	  @echo "To git tag do: make gittag TAG=?"
         endif
+
+world_update:
+	@git status -s > /tmp/git_st_$$$$;                                         \
+        if [ -s /tmp/git_st_$$$$ ]; then                                           \
+            echo "All files not checked in => try again";                          \
+        else                                                                       \
+	    branchName=`git status | head -n 1 | sed 's/^[# ]*On branch //g'`;	   \
+            git push        github $$branchName;                                   \
+            git push --tags github $$branchName;                                   \
+        fi;                                                                        \
+        rm -f /tmp/git_st_$$$$
