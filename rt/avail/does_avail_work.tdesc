@@ -20,6 +20,7 @@ testdescript = {
      init
      export MODULEPATH_ROOT=$testDir/mf
      export MODULEPATH=$MODULEPATH_ROOT/Core
+     export LMOD_TERM_WIDTH=300
 
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l

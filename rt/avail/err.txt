@@ -3,5 +3,4 @@ Modules based on Lua: Version 7.1.11 (7.1.11-4-gd1b3586) 2016-12-24 10:36 -06:00
 ProjectDIR/rt/avail/mf/Core
    A/1.0    B/2.0
 Use "module spider" to find all possible modules.
-Use "module keyword key1 key2 ..." to search for all possible modules matching
-any of the "keys".
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
