@@ -11,7 +11,7 @@ gittag:
 	    $(RM)                                                    $(VERSION_SRC); \
 	    echo '$(TAG)'                                         >  $(VERSION_SRC); \
 	    echo '#!/usr/bin/env lua'                             >  $(VCMD); 	     \
-	    echo 'function tag()  return "$(TAG)"   end'          >  $(VCMD); 	     \
+	    echo 'function tag()  return "$(TAG)"   end'          >> $(VCMD); 	     \
 	    echo 'function date() return "$(VDATE)" end'          >> $(VCMD); 	     \
 	    echo 'function main()'                                >> $(VCMD); 	     \
             echo '  local a = {}'                                 >> $(VCMD); 	     \
@@ -21,7 +21,8 @@ gittag:
 	    echo '  print("Lmod test suite: Version "..s)'        >> $(VCMD); 	     \
 	    echo 'end'                                            >> $(VCMD); 	     \
 	    echo 'main()'                                         >> $(VCMD); 	     \
-            git commit -m "moving to TAG_VERSION $(TAG)"             $(VERSION_SRC); \
+	    chmod +x $(VCMD);                                                        \
+            git commit -m "moving to TAG_VERSION $(TAG)"     $(VCMD) $(VERSION_SRC); \
             git tag -a $(TAG) -m 'Setting TAG_VERSION to $(TAG)'                   ; \
 	    branchName=`git status | head -n 1 | sed 's/^[# ]*On branch //g'`      ; \
             git push        origin $$branchName                                    ; \
