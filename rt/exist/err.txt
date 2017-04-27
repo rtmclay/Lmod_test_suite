@@ -1,4 +1,5 @@
-Modules based on Lua: Version 7.1.11 (7.1.11-4-gd1b3586) 2016-12-24 10:36 -06:00
+Lmod test suite: Version 1.2.3 2017-04-27 14:34 -05:00
+Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
     by Robert McLay mclay@tacc.utexas.edu
 LMOD_CMD is defined
 LMOD_DIR is defined

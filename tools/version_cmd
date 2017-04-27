@@ -6,6 +6,6 @@ function main()
   a[#a+1] = tag()
   a[#a+1] = date()
   local s = table.concat(a," ")
-  print("Lmod test suite: Version "..s)
+  io.stderr:write("Lmod test suite: Version ",s,"\n")
 end
 main()

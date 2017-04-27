@@ -24,6 +24,7 @@ testdescript = {
 
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
+      $(projectDir)/tools/version_cmd
       unset LMOD_RTM_TESTING
       module --version
       module avail

@@ -19,6 +19,7 @@ testdescript = {
      echo MODULEPATH_ROOT: $MODULEPATH_ROOT
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
+      $(projectDir)/tools/version_cmd
       unset LMOD_RTM_TESTING
       module --version
       echo LMOD_CMD: $LMOD_CMD

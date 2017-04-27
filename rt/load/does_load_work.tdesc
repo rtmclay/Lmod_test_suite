@@ -25,6 +25,7 @@ testdescript = {
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
       unset LMOD_RTM_TESTING
+      $(projectDir)/tools/version_cmd
       module --version
       module load A
       module list

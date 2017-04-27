@@ -1,4 +1,5 @@
-Modules based on Lua: Version 7.1.12 (7.1.12-1-gd95e228c) 2016-12-29 20:55 -06:00
+Lmod test suite: Version 1.2.3 2017-04-27 14:34 -05:00
+Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
     by Robert McLay mclay@tacc.utexas.edu
 Currently Loaded Modules:
   1) A/1.0
