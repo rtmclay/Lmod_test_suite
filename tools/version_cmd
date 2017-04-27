@@ -1,0 +1,12 @@
+#!/usr/bin/env lua
+function tag()  return "1.2.1"   end
+function date() return "2017-04-27 14:22 -05:00" end
+function main()
+  local a = {}
+  a[#a+1] = tag()
+  a[#a+1] = date()
+  local s = table.concat(a," ")
+  print("Lmod test suite: Version "..s)
+end
+   
+main()

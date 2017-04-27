@@ -10,13 +10,15 @@ gittag:
 	    $(RM)                                                    $(VCMD);        \
 	    $(RM)                                                    $(VERSION_SRC); \
 	    echo '$(TAG)'                                         >  $(VERSION_SRC); \
+	    echo '#!/usr/bin/env lua'                             >  $(VCMD); 	     \
 	    echo 'function tag()  return "$(TAG)"   end'          >  $(VCMD); 	     \
 	    echo 'function date() return "$(VDATE)" end'          >> $(VCMD); 	     \
 	    echo 'function main()'                                >> $(VCMD); 	     \
             echo '  local a = {}'                                 >> $(VCMD); 	     \
-	    echo '  a[#a+1] = M.tag()'                            >> $(VCMD); 	     \
-	    echo '  a[#a+1] = M.date()'                           >> $(VCMD); 	     \
-	    echo '  return table.concat(a," ")'                   >> $(VCMD); 	     \
+	    echo '  a[#a+1] = tag()'                              >> $(VCMD); 	     \
+	    echo '  a[#a+1] = date()'                             >> $(VCMD); 	     \
+	    echo '  local s = table.concat(a," ")'                >> $(VCMD); 	     \
+	    echo '  print("Lmod test suite: Version "..s)'        >> $(VCMD); 	     \
 	    echo 'end'                                            >> $(VCMD); 	     \
 	    echo 'main()'                                         >> $(VCMD); 	     \
             git commit -m "moving to TAG_VERSION $(TAG)"             $(VERSION_SRC); \
