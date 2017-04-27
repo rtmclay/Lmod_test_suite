@@ -18,7 +18,7 @@ gittag:
 	    echo '  a[#a+1] = tag()'                              	 >> $(VCMD); 	    \
 	    echo '  a[#a+1] = date()'                             	 >> $(VCMD); 	    \
 	    echo '  local s = table.concat(a," ")'                	 >> $(VCMD); 	    \
-	    echo '  io.stderr:write("Lmod test suite: Version ",s,"\n")' >> $(VCMD); 	    \
+	    echo '  io.stderr:write("Lmod test suite: Version ",s,"\\n")'>> $(VCMD); 	    \
 	    echo 'end'                                                   >> $(VCMD);  	    \
 	    echo 'main()'                                                >> $(VCMD);   	    \
 	    chmod +x $(VCMD);                                                        	    \
