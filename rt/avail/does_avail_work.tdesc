@@ -24,6 +24,11 @@ testdescript = {
 
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
+      module purge
+      clearMT
+      export MODULEPATH_ROOT=$testDir/mf
+      export MODULEPATH=$MODULEPATH_ROOT/Core
+      
       $(projectDir)/tools/version_cmd
       unset LMOD_RTM_TESTING
       module --version

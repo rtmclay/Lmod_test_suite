@@ -17,7 +17,7 @@ Please go to https://lists.sourceforge.net/lists/listinfo/lmod-users to join.
 To get ready to use this test suite please take the following steps:
 
 1. Install Lmod from either lmod.sf.net or github.com/TACC/Lmod.git
-2. Install Hermes from https://github.com/TACC/hermes.git.
+2. Install Hermes from https://github.com/TACC/hermes.git (version 2.5+)
 
 
 ## Install:

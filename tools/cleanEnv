@@ -1,6 +1,5 @@
 #!/usr/bin/env lua
 -- -*- lua -*-
-require("strict")
 local keepT     = {
    ['ACCOUNT']         = true,
    ['HOME']            = true,
@@ -40,6 +39,7 @@ function main()
    for k, v in pairs(envT) do
       local keep = keepT[k]
       if (not keep) then
+         k = k:gsub("%(%)","")
          print("unset ",k," 2> /dev/null;")
       end
    end
