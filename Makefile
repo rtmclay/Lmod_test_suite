@@ -1,4 +1,5 @@
 VERSION_SRC := .version
+
 VCMD        := tools/version_cmd
 VDATE       := $(shell date +'%F %H:%M %:z')
 gittag:
