@@ -1,7 +1,7 @@
-Lmod test suite: Version 1.2.3 2017-04-27 14:34 -05:00
-Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
+Lmod test suite: Version 1.5 2017-04-28 21:00 -05:00
+Modules based on Lua: Version 8.4.24 (8.4.24-3-gabc7c61c) 2021-02-24 10:45 -06:00
     by Robert McLay mclay@tacc.utexas.edu
 ProjectDIR/rt/avail/mf/Core
    A/1.0    B/2.0
-Use "module spider" to find all possible modules.
+Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
