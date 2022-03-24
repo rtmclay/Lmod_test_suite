@@ -5,7 +5,7 @@ testdescript = {
    description = [[
 	 Does the module load work?
    ]],
-   keywords = {"avail" },
+   keywords = {"sh_to_modulefile","normal" },
 
    active = true,
    testName = "testing_sh_to_modulefile",

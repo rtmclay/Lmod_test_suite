@@ -5,7 +5,7 @@ testdescript = {
    description = [[
 	 Does the module command exist?
    ]],
-   keywords = {"module_command" },
+   keywords = {"module_command","normal" },
 
    active = true,
    testName = "does_module_exist",

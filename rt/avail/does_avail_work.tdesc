@@ -5,7 +5,7 @@ testdescript = {
    description = [[
 	 Does the module avail work?
    ]],
-   keywords = {"avail" },
+   keywords = {"avail", "normal"},
 
    active = true,
    testName = "does_avail_work",

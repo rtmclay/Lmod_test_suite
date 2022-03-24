@@ -5,7 +5,7 @@ testdescript = {
    description = [[
 	 Does a subshell work?
    ]],
-   keywords = {"subshell" },
+   keywords = {"subshell","normal" },
 
    active = true,
    testName = "does_a_subshell_work",
