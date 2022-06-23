@@ -30,6 +30,11 @@ cat > $testName.sh << 'EOF'
       module load A
       module list
       echo A: $A 1>&2
+      export TEST=0
+      module load B
+      echo TEST: $TEST 1>&2
+      module unload B
+      echo TEST: $TEST 1>&2
 EOF
       chmod +x $testName.sh
       ./$testName.sh 2> _stderr.orig

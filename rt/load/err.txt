@@ -4,3 +4,5 @@ Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
 Currently Loaded Modules:
   1) A/1.0
 A: a
+TEST: 123
+TEST: 0
