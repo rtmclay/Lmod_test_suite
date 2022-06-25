@@ -21,6 +21,8 @@ testdescript = {
      unset A 2> /dev/null
      export MODULEPATH_ROOT=$testDir/mf
      export MODULEPATH=$MODULEPATH_ROOT/Core
+     echo LMOD_SHELL_PRGM: $LMOD_SHELL_PRGM
+     echo BASH_VERSION: $BASH_VERSION
 
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
