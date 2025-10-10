@@ -1,6 +1,6 @@
 Lmod test suite: Version 1.2.3 2017-04-27 14:34 -05:00
 Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
-    by Robert McLay mclay@tacc.utexas.edu
+    https://lmod.readthedocs.io
 LMOD_CMD is defined
 LMOD_DIR is defined
 BASH_ENV is defined

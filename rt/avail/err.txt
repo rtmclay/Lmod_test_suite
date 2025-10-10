@@ -1,6 +1,6 @@
 Lmod test suite: Version 1.5 2017-04-28 21:00 -05:00
 Modules based on Lua: Version 8.6.15 (8.6.15-3-gd1458715) 2022-03-17 16:13 -05:00
-    by Robert McLay mclay@tacc.utexas.edu
+    https://lmod.readthedocs.io
 ProjectDIR/rt/avail/mf/Core
    A/1.0    B/2.0
 If the avail list is too long consider trying:

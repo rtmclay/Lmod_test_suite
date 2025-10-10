@@ -1,12 +1,12 @@
 Lmod test suite: Version 1.2.3 2017-04-27 14:34 -05:00
 Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
-    by Robert McLay mclay@tacc.utexas.edu
+    https://lmod.readthedocs.io
 Currently Loaded Modules:
   1) A/1.0   2) B/2.0
 alias a_func='echo I am a_func'
 A: a1
 Modules based on Lua: Version 7.4.8 (7.4.8-6-g5aac816) 2017-04-21 21:22 -05:00
-    by Robert McLay mclay@tacc.utexas.edu
+    https://lmod.readthedocs.io
 Currently Loaded Modules:
   1) A/1.0   2) B/2.0
 A: a1
