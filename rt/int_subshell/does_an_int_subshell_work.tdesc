@@ -42,8 +42,22 @@ cat > subshell.sh << 'EOF'
       alias  | grep a_func 1>&2
 EOF
 
-      chmod +x $testName.sh subshell.sh
-      ./$testName.sh 2> _stderr.orig
+cat > tryThis.sh << 'EOF'
+#!/bin/bash
+      unset LMOD_RTM_TESTING
+      echo "In tryThis.sh" 1>&2
+      module load A
+      module list 
+      echo "Leaving tryThis.sh" 1>&2
+EOF
+
+      chmod +x $testName.sh subshell.sh tryThis.sh
+      ./$testName.sh 2>  _stderr.orig
+
+      echo "Before"  2>> _stderr.orig 1>&2
+      unset BASH_ENV
+      ./tryThis.sh   2>> _stderr.orig
+      echo "After"   2>> _stderr.orig 1>&2
 
      HOME=$ORIG_HOME
 
