@@ -37,7 +37,8 @@ local concatTbl = table.concat
 function main()
    local envT = getenv()
 
-   for k, v in pairs(envT) do
+   for myKey, v in pairs(envT) do
+      local k    = myKey
       local keep = keepT[k]
       if (not keep) then
          k = k:gsub("%(%)","")
