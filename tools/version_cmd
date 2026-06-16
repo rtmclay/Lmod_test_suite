@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
-function tag()  return "1.5"   end
-function date() return "2017-04-28 21:00 -05:00" end
+function tag()  return "1.6"   end
+function date() return "2026-06-16 10:34 -05:00" end
 function main()
   local a = {}
   a[#a+1] = tag()
