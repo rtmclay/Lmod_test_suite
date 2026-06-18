@@ -1,4 +1,4 @@
-Lmod test suite: Version 1.5 2017-04-28 21:00 -05:00
+Lmod test suite: Version 1.6 2026-06-16 10:34 -05:00
 Modules based on Lua: Version 9.2.4 2026-06-16 08:21 -05:00
     https://lmod.readthedocs.io
 Currently Loaded Modules:
@@ -11,9 +11,3 @@ Currently Loaded Modules:
   1) A/1.0   2) B/2.0
 A: a1
 alias a_func='echo I am a_func'
-Before
-In tryThis.sh
-Currently Loaded Modules:
-  1) A/1.0
-Leaving tryThis.sh
-After
