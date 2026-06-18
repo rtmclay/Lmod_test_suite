@@ -5,7 +5,7 @@ testdescript = {
    description = [[
 	 Does the module load work?
    ]],
-   keywords = {"lmod","normal" },
+   keywords = {"lmod","normal","all" },
 
    active = true,
    testName = "does_load_work",
