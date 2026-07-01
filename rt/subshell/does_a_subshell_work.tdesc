@@ -46,18 +46,47 @@ cat > tryThis.sh << 'EOF'
 #!/bin/bash
      unset LMOD_RTM_TESTING
      echo "In tryThis.sh" 1>&2
+     export LD_LIBRARY_PATH="/def/abc:/qrtst/def"
      module load A
+     module load prependLibPath
      module list 
+     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% 1>&2
      echo "Leaving tryThis.sh" 1>&2
 EOF
 
-     chmod +x $testName.sh subshell.sh tryThis.sh
+cat > tryThis.csh << 'EOF'
+#!/bin/tcsh
+     unsetenv LMOD_RTM_TESTING
+     module purge
+     clearMT
+     setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
+     setenv MODULEPATH_ROOT $(testDir)/mf
+     setenv MODULEPATH $MODULEPATH_ROOT/Core
+     setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
+     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >  LDD_result.log
+     $LMOD_DIR/protectedVarsHelper.csh       >> LDD_result.log
+     eval `$LMOD_DIR/protectedVarsHelper.csh`
+     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >> LDD_result.log
+     echo __LMOD_PROTECTED_LD_LIBRARY_PATH=%$__LMOD_PROTECTED_LD_LIBRARY_PATH% >> LDD_result.log
+     setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
+     module load A
+     module load prependLibPath
+     module list 
+     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >> LDD_result.log
+EOF
+
+     chmod +x $testName.sh subshell.sh tryThis.sh tryThis.csh
      ./$testName.sh 2> _stderr.orig
 
      echo "Before"  2>> _stderr.orig 1>&2
      unset BASH_ENV
      ./tryThis.sh   2>> _stderr.orig
      echo "After"   2>> _stderr.orig 1>&2
+
+     echo "Before csh"  2>> _stderr.orig 1>&2
+     ./tryThis.csh      2>> _stderr.orig
+     cat LDD_result.log 2>> _stderr.orig 1>&2
+     echo "After csh"   2>> _stderr.orig 1>&2
 
      HOME=$ORIG_HOME
 
