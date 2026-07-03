@@ -23,6 +23,7 @@ testdescript = {
 
 cat > $testName.sh << 'EOF'
 #!/bin/bash -l
+     set -u
      unset LMOD_RTM_TESTING
      $(projectDir)/tools/version_cmd
      module --version
@@ -57,22 +58,17 @@ EOF
 cat > tryThis.csh << 'EOF'
 #!/bin/tcsh
      unsetenv LMOD_RTM_TESTING
+     rm -f LDD_result.log
      module purge
      clearMT
      setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
      setenv MODULEPATH_ROOT $(testDir)/mf
      setenv MODULEPATH $MODULEPATH_ROOT/Core
-     setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
-     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >  LDD_result.log
-     $LMOD_DIR/protectedVarsHelper.csh       >> LDD_result.log
-     eval `$LMOD_DIR/protectedVarsHelper.csh`
-     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >> LDD_result.log
-     echo __LMOD_PROTECTED_LD_LIBRARY_PATH=%$__LMOD_PROTECTED_LD_LIBRARY_PATH% >> LDD_result.log
-     setenv LD_LIBRARY_PATH /def/abc:/qrtst/def
+     echo "old -> LD_LIBRARY_PATH=%$LD_LIBRARY_PATH%" >> LDD_result.log
      module load A
      module load prependLibPath
      module list 
-     echo LD_LIBRARY_PATH=%$LD_LIBRARY_PATH% >> LDD_result.log
+     echo "new -> LD_LIBRARY_PATH=%$LD_LIBRARY_PATH%" >> LDD_result.log
 EOF
 
      chmod +x $testName.sh subshell.sh tryThis.sh tryThis.csh

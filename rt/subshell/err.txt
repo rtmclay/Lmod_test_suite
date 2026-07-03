@@ -1,11 +1,11 @@
 Lmod test suite: Version 1.6 2026-06-16 10:34 -05:00
-Modules based on Lua: Version 9.2.4 2026-06-16 08:21 -05:00
+Modules based on Lua: Version 9.2.4 (9.2.4-30-ge85eedfaf) 2026-07-03 17:32 -05:00
     https://lmod.readthedocs.io
 Currently Loaded Modules:
   1) A/1.0   2) B/2.0
 alias a_func='echo I am a_func'
 A: a1
-Modules based on Lua: Version 9.2.4 2026-06-16 08:21 -05:00
+Modules based on Lua: Version 9.2.4 (9.2.4-30-ge85eedfaf) 2026-07-03 17:32 -05:00
     https://lmod.readthedocs.io
 Currently Loaded Modules:
   1) A/1.0   2) B/2.0
@@ -14,6 +14,13 @@ alias a_func='echo I am a_func'
 Before
 In tryThis.sh
 Currently Loaded Modules:
-  1) A/1.0
+  1) A/1.0   2) prependLibPath/1.0
+LD_LIBRARY_PATH=%/foo/bar:/def/abc:/qrtst/def%
 Leaving tryThis.sh
 After
+Before csh
+Currently Loaded Modules:
+  1) A/1.0   2) prependLibPath/1.0
+old -> LD_LIBRARY_PATH=%/def/abc:/qrtst/def%
+new -> LD_LIBRARY_PATH=%/foo/bar:/def/abc:/qrtst/def%
+After csh
