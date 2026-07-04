@@ -18,7 +18,7 @@ init()
   export LMOD_RTM_TESTING=1
 
   rm -rf _stderr.orig
-  cp $projectDir/{.bashrc,.bash_profile} $outputDir
+  cp $projectDir/{.bashrc,.bash_profile,.cshrc} $outputDir
 }
 
 cleanUp ()
