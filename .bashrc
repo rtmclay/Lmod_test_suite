@@ -1,11 +1,9 @@
-system=$(uname -s)
-
-if [ "$system" = Darwin ] && [ -f /tmp/lmod/lmod/init/profile ]; then
+if ! command -v module > /dev/null ; then
   .     /tmp/lmod/lmod/init/profile
+fi  
 
-  if [ -z "${__INIT_MODULES:-}" ]; then
-    export __INIT_MODULES=1
-  else
-    module refresh
-  fi
+if [ -z "${__INIT_MODULES:-}" ]; then
+  export __INIT_MODULES=1
+else
+  module refresh
 fi

@@ -45,6 +45,11 @@ EOF
 
 cat > tryThis.sh << 'EOF'
 #!/bin/bash
+     echo BASH_ENV: %$BASH_ENV% 1>&2
+     module purge
+     clearMT
+     export MODULEPATH_ROOT=$testDir/mf
+     export MODULEPATH=$MODULEPATH_ROOT/Core
      unset LMOD_RTM_TESTING
      echo "In tryThis.sh" 1>&2
      export LD_LIBRARY_PATH="/def/abc:/qrtst/def"
