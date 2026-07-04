@@ -45,7 +45,6 @@ EOF
 
 cat > tryThis.sh << 'EOF'
 #!/bin/bash
-     echo BASH_ENV: %$BASH_ENV% 1>&2
      module purge
      clearMT
      export MODULEPATH_ROOT=$testDir/mf
