@@ -1,6 +1,6 @@
 #  Lmod Test Suite.
 
-This is a test suite for Lmod.  It checks that Lmod is installed correctly. It relies on the Hermes testing framework (found at https://github.com:rtmclay/hermes.git).
+This is a test suite for Lmod.  It checks that Lmod is installed correctly. It relies on the Hermes testing framework (found at https://github.com/rtmclay/hermes.git).
 
 This set of test is designed to test how well Lmod is integrated into the startup scripts.  This is typically adding the appropriate files into /etc/profile.d.  Linux systems typically use this to allow programs and aliases and shell functions to be available for a user without the user adding anything to their personal startup scripts (i.e. ~/.bashrc).
 
