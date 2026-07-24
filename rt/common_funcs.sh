@@ -17,7 +17,7 @@ init()
 
   export LMOD_RTM_TESTING=1
 
-  rm -rf _stderr.orig
+  rm -rf _stderr.orig failed.txt
   cp $projectDir/{.bashrc,.bash_profile,.cshrc} $outputDir
 }
 

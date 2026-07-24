@@ -35,7 +35,7 @@ EOF
      cleanUp _stderr.orig err.txt
      rm -f results.csv
      wrapperDiff --csv results.csv $(testDir)/err.txt err.txt
-     testFinish -r $(resultFn) -t $(runtimeFn) results.csv
+     testFinish --onFailure $(outputDir)/failed.txt -r $(resultFn) -t $(runtimeFn) results.csv
    ]],
 
 
